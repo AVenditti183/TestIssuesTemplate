@@ -1,0 +1,25 @@
+name: Tecnical-issue
+description: Issue Tecnica
+title: ""
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: backlog-issue
+    attributes:
+      label: backlog-issue
+      description: BackLog Issue
+      placeholder: 
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Note
+      placeholder: 
+      value: 
+    validations:
+      required: true
