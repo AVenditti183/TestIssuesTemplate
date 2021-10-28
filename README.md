@@ -1,2 +1,2 @@
 # TestIssuesTemplate
-test6
+test7
