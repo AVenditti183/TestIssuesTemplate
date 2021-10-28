@@ -20,7 +20,7 @@ jobs:
           shell: bash
           run: |
             echo ${BASE_BRANCH}
-            git fetch origin master:master
+            git fetch origin main:main
             git checkout ${BASE_BRANCH}
             hash1=$(git show-ref --heads -s main)
             hash2=$(git merge-base --fork-point main)
