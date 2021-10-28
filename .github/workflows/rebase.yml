@@ -2,7 +2,8 @@ name: Check Rebase on Main
 
 on:
   pull_request:
-    branches:
+    types: [opened, synchronize, edited, reopened]
+    branches: 
       - main
 
 jobs:
