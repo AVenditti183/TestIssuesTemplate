@@ -1,0 +1,29 @@
+name: Check Rebase on Main
+
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+    branches:
+      - Main
+
+jobs:
+    CheckRebaseOnMaster:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+        - name: Check rebase on Main
+          env:
+            BASE_BRANCH: ${{ github.head_ref }}
+          shell: bash
+          run: |
+            echo ${BASE_BRANCH}
+            git fetch origin master:master
+            git checkout ${BASE_BRANCH}
+            hash1=$(git show-ref --heads -s main)
+            hash2=$(git merge-base --fork-point main)
+            echo $hash1
+            echo $hash2
+            [ "${hash1}" = "${hash2}" ]  && exit 0 || echo exit 1
