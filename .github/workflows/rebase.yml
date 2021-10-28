@@ -2,7 +2,9 @@ name: Check Rebase on Main
 
 on:
   pull_request:
-    types: [assigned, opened, synchronize, reopened]
+    branches:
+      - main
+  pull_request_target:
     branches:
       - main
 
